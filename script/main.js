@@ -1,114 +1,110 @@
+/* Function make random Rock-Paper-Scissors */
 function computerPlay() {
-  let min = 1;
-  let max = 3;
-  let hand = 0;
-  let weapon = "none";
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  hand = Math.floor(Math.random() * (max - min + 1) + min);
-  if (hand == 1) {
-    weapon = "Rock";
+  let randomNumber = 0;
+  let computerChoice = "none";
+  randomNumber = Math.ceil(Math.random() * 3);
+  if (randomNumber == 1) {
+    computerChoice = "rock";
     alert("Computer choose Rock");
-  } else if (hand == 2) {
-    weapon = "Paper";
+  } else if (randomNumber == 2) {
+    computerChoice = "paper";
     alert("Computer choose Paper");
   } else {
-    weapon = "Scissors";
+    computerChoice = "scissors";
     alert("Computer choose Scissors");
   }
-  return weapon;
+  return computerChoice;
 }
-
+/*Function take user input and decide the match */
 function playRound() {
-  let playerSelection = prompt("What's your choose?");
-  const computerSelection = computerPlay();
-  let player = playerSelection.toLowerCase();
-  let computer = computerSelection.toLowerCase();
+  let playerInput = prompt("What's your choose?");
+  const computerChoice = computerPlay();
+  let playerChoice = playerInput.toLowerCase();
   let result = "none";
-  if (player == "rock") {
-    if (computer == "rock") {
+  if (playerChoice == "rock") {
+    if (computerChoice == "rock") {
       alert("Draw!");
       result = "draw";
-    } else if (computer == "paper") {
+    } else if (computerChoice == "paper") {
       alert("You lose this round!");
       result = "lose";
-    } else if (computer == "scissors") {
+    } else if (computerChoice == "scissors") {
       alert("You win this round!");
       result = "win";
     }
-  } else if (player == "paper") {
-    if (computer == "rock") {
+  } else if (playerChoice == "paper") {
+    if (computerChoice == "rock") {
       alert("You win this round!");
       result = "win";
-    } else if (computer == "paper") {
+    } else if (computerChoice == "paper") {
       alert("Draw!");
       result = "draw";
-    } else if (computer == "scissors") {
+    } else if (computerChoice == "scissors") {
       alert("You lose this round!");
       result = "lose";
     }
-  } else if (player == "scissors") {
-    if (computer == "rock") {
+  } else if (playerChoice == "scissors") {
+    if (computerChoice == "rock") {
       alert("You lose this round!");
       result = "lose";
-    } else if (computer == "paper") {
+    } else if (computerChoice == "paper") {
       alert("You win this round!");
       result = "win";
-    } else if (computer == "scissors") {
+    } else if (computerChoice == "scissors") {
       alert("Draw!");
       result = "draw";
     }
   }
   return result;
 }
-
-function game() {
+/* Function play the game 5 times, and decide a winner */
+function gameBo5() {
   let win = 0;
   let lose = 0;
   let draw = 0;
-  let game = playRound();
-  console.log(game);
-  if (game == "win") {
+  let match = playRound();
+  console.log(match);
+  if (match == "win") {
     win = win + 1;
-  } else if (game == "lose") {
+  } else if (match == "lose") {
     lose = lose + 1;
-  } else if (game == "draw") {
+  } else if (match == "draw") {
     draw = draw + 1;
   }
-  game = playRound();
-  console.log(game);
-  if (game == "win") {
+  match = playRound();
+  console.log(match);
+  if (match == "win") {
     win = win + 1;
-  } else if (game == "lose") {
+  } else if (match == "lose") {
     lose = lose + 1;
-  } else if (game == "draw") {
+  } else if (match == "draw") {
     draw = draw + 1;
   }
-  game = playRound();
-  console.log(game);
-  if (game == "win") {
+  match = playRound();
+  console.log(match);
+  if (match == "win") {
     win = win + 1;
-  } else if (game == "lose") {
+  } else if (match == "lose") {
     lose = lose + 1;
-  } else if (game == "draw") {
+  } else if (match == "draw") {
     draw = draw + 1;
   }
-  game = playRound();
-  console.log(game);
-  if (game == "win") {
+  match = playRound();
+  console.log(match);
+  if (match == "win") {
     win = win + 1;
-  } else if (game == "lose") {
+  } else if (match == "lose") {
     lose = lose + 1;
-  } else if (game == "draw") {
+  } else if (match == "draw") {
     draw = draw + 1;
   }
-  game = playRound();
-  console.log(game);
-  if (game == "win") {
+  match = playRound();
+  console.log(match);
+  if (match == "win") {
     win = win + 1;
-  } else if (game == "lose") {
+  } else if (match == "lose") {
     lose = lose + 1;
-  } else if (game == "draw") {
+  } else if (match == "draw") {
     draw = draw + 1;
   }
   alert(
@@ -123,4 +119,4 @@ function game() {
   }
 }
 alert("This is Bo5 Rock Paper Scissors.");
-game();
+gameBo5();
